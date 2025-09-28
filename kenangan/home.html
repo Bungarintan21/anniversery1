@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Anniversary Kita</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>💞 Selamat Anniversary 1 Tahun Sayangkuh 💞</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <section class="intro">
+    <p>"Hari ini genap satu tahun sejak aku dan kamu mengikatkan hati dalam satu janji cinta. Setahun mungkin terdengar singkat, tapi setiap detik bersamamu terasa begitu berarti. Ada tawa, ada tangis, ada suka, ada duka — namun semua itu indah karena aku menjalaninya bersamamu. Kamu adalah rumah tempat aku kembali, pelabuhan saat aku lelah, dan doa terindah yang selalu kuucapkan setiap malam. Terima kasih telah mencintai aku dengan tulus, menerima kekuranganku, dan selalu menggenggam tanganku dalam setiap langkah. Semoga satu tahun ini hanyalah awal dari perjalanan cinta kita yang panjang, hingga kita menua bersama, tetap saling mencintai dengan sederhana, tapi selalu penuh makna. Selamat Anniversary 1 Tahun, cintaku. Aku mencintaimu, hari ini, esok, dan selamanya." 💖</p>
+  </section>
+
+  <section class="gallery">
+    <h2>📸 Kenangan Kita</h2>
+    <div class="photos">
+      <img src="img/1.jpg" alt="Kenangan 1">
+      <img src="img/2.jpg" alt="Kenangan 2">
+      <img src="img/3.jpg" alt="Kenangan 3">
+      <img src="img/4.jpg" alt="Kenangan 4">
+      <img src="img/5.jpg" alt="Kenangan 5">
+      <img src="img/6.jpg" alt="Kenangan 6">
+    </div>
+  </section>
+
+  <section class="video">
+    <h2>🎬 Video Aku Buat Kamu Tonton yaa Sayangkuh
+    </h2>
+    <video controls>
+      <source src="EEGTE8978.MOV" type="video/mp4">
+      Browser tidak mendukung video.
+    </video>
+  </section>
+
+  <section class="music">
+    <audio controls autoplay loop>
+      <source src="aku-yang-jatuh-cinta-244042.mp3" type="audio/mp3">
+      Browser tidak mendukung audio.
+    </audio>
+  </section>
+
+  <footer>
+    <p>❤️ Untukmu, cintaku. ❤️</p>
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      Terima kasih sudah bersamaku selama 1 tahun ini. Kuat yaa Jalanin LDR nyaa 💕
+    </marquee>
+  </footer>
+
+  <!-- Efek Love -->
+  <div id="hearts-container"></div>
+
+  <script>
+    function checkLogin() {
+      if(localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "index.html";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+
+    // Efek hati jatuh
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.getElementById("hearts-container").appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
